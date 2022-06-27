@@ -21,11 +21,11 @@ using namespace std;
 //
 // 시간 복잡도
 //   Loop 반복 횟수 < (N - L + 1) * (N - L) * N < N^3
-//   따라서, O(N^3)
+//   따라서, O(N^3).
 //
 // 공간 복잡도
 //   입력 데이터를 저장하기 위한 공간 외에 몇 개의 변수들만 필요한다.
-//   따라서, O(1)
+//   따라서, O(1).
 //
 double FindMinAvg_1(int L, const vector<int>& costs) {
   int N = costs.size();
@@ -53,11 +53,11 @@ double FindMinAvg_1(int L, const vector<int>& costs) {
 // 시간 복잡도
 //   임시 배열 구축 시간: O(N)
 //   Loop 반복 횟수 < (N - L + 1) * (N - L)
-//   따라서, O(N^2)
+//   따라서, O(N^2).
 //
 // 공간 복잡도
 //   임시 배열을 위한 공간이 필요하다.
-//   따라서, O(N)
+//   따라서, O(N).
 //
 double FindMinAvg_2(int L, const vector<int>& costs) {
   vector<int> temp(costs);
