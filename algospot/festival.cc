@@ -24,7 +24,7 @@ using namespace std;
 //   따라서, O(N^3).
 //
 // 공간 복잡도
-//   입력 데이터를 저장하기 위한 공간 외에 몇 개의 변수들만 필요한다.
+//   입력 데이터를 저장하기 위한 공간 외에 몇 개의 변수들만 필요하다.
 //   따라서, O(1).
 //
 double FindMinAvg_1(int L, const vector<int>& costs) {
