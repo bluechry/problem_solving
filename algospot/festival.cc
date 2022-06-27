@@ -6,7 +6,7 @@
 //
 // Description
 //   For a given number of integers, find consecutive integers whose length
-//   is not less than L and whose mean is smallest. Return the average of
+//   is not less than L and whose mean is smallest and return the average of
 //   them as a result.
 
 #include <iostream>
