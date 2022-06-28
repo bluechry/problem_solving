@@ -11,6 +11,7 @@
 
 #include <iostream>
 #include <limits>
+#include <numeric>
 #include <vector>
 
 using namespace std;
@@ -27,17 +28,13 @@ using namespace std;
 //   입력 데이터를 저장하기 위한 공간 외에 몇 개의 변수들만 필요한다.
 //   따라서, O(1).
 //
-double FindMinAvg_1(int L, const vector<int>& costs) {
+double FindMinAvg1(int L, const vector<int>& costs) {
   int N = costs.size();
-  double min_avg = std::numeric_limits<double>::max();
+  double min_avg = numeric_limits<double>::max();
   for (int i = 0; i <= N - L; ++i) {
     for (int j = i + L - 1; j <= N - 1; ++j) {
-      int sum = 0;
-      for (int k = i; k <= j; ++k) {
-        sum += costs[k];
-      }
-      double avg = (double)sum / (j - i + 1);
-      min_avg = std::min(min_avg, avg);
+      int sum = accumulate(&costs[i], &costs[j + 1], 0);
+      min_avg = min(min_avg, (double)sum / (j - i + 1));
     }
   }
   return min_avg;
@@ -59,19 +56,18 @@ double FindMinAvg_1(int L, const vector<int>& costs) {
 //   임시 배열을 위한 공간이 필요하다.
 //   따라서, O(N).
 //
-double FindMinAvg_2(int L, const vector<int>& costs) {
+double FindMinAvg2(int L, const vector<int>& costs) {
   vector<int> temp(costs);
   int N = temp.size();
   for (int i = 0; i < N; ++i) {
     temp[i] += temp[i - 1];
   }
 
-  double min_avg = std::numeric_limits<double>::max();
+  double min_avg = numeric_limits<double>::max();
   for (int i = 0; i <= N - L; ++i) {
     for (int j = i + L - 1; j <= N - 1; ++j) {
-      int sum = (i >= 1) ? (temp[j] - temp[i - 1]) : temp[j];
-      double avg = (double)sum / (j - i + 1);
-      min_avg = std::min(min_avg, avg);
+      int sum = (i == 0) ? temp[j] : (temp[j] - temp[i - 1]);
+      min_avg = min(min_avg, (double)sum / (j - i + 1));
     }
   }
   return min_avg;
@@ -89,7 +85,7 @@ int main() {
       cin >> costs[i];
     }
 
-    double result = FindMinAvg_2(L, costs);
+    double result = FindMinAvg1(L, costs);
     printf("%.11lf\n", result);
   }
   return 0;
