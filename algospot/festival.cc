@@ -41,11 +41,12 @@ double FindMinAvg1(int L, const vector<int>& costs) {
 }
 
 // 풀이 방법 #2
-//   풀이 방법 #1에서, [i, j] 구간의 정수들을 더하는 작업이 여러 번 반복된다.
-//   각 정수들이 한 번만 더해지도록 해보자.
+//   풀이 방법 #1에서, [i, j] 구간의 평균을 구하는데 O(N)의 시간이 드는데,
+//   이를 O(1)으로 줄여보자.
 //
 //   임시 배열 temp[]를 두고, temp[i]에 [0, i] 구간의 합을 저장한다.
 //   그러면, [i, j] 구간의 합은 temp[j] - temp[i - 1]로 구할 수 있다.
+//   이 구간합을 (j - i + 1)로 나누면 O(1)에 평균을 구할 수 있다.
 //
 // 시간 복잡도
 //   임시 배열 구축 시간: O(N)
@@ -66,6 +67,7 @@ double FindMinAvg2(int L, const vector<int>& costs) {
   double min_avg = numeric_limits<double>::max();
   for (int i = 0; i <= N - L; ++i) {
     for (int j = i + L - 1; j <= N - 1; ++j) {
+      // 풀이 방법 1의 accumulate(&costs[i], &costs[j + 1], 0)를 수정
       int sum = (i == 0) ? temp[j] : (temp[j] - temp[i - 1]);
       min_avg = min(min_avg, (double)sum / (j - i + 1));
     }
