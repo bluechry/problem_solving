@@ -9,12 +9,14 @@
 //   is not less than L and whose mean is smallest and return the average of
 //   them as a result.
 
+//{{{
 #include <iostream>
 #include <limits>
 #include <numeric>
 #include <vector>
 
 using namespace std;
+//}}}
 
 // 풀이방법 #1
 //   길이가 L 이상인 모든 연속한 정수들에 대하여 평균값을 구하고, 그 중에
@@ -75,6 +77,7 @@ double FindMinAvg2(int L, const vector<int>& costs) {
   return min_avg;
 }
 
+//{{{
 int main() {
   int C;
   cin >> C;
@@ -92,3 +95,4 @@ int main() {
   }
   return 0;
 }
+//}}}

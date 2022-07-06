@@ -5,11 +5,13 @@
 //   매 K번 원소들(every Kth element)을 삭제하고, 마지막 남은 두 개의 원소들을
 //   오름차순으로 출력하라.
 
+//{{{
 #include <iostream>
 #include <list>
 #include <queue>
 
 using namespace std;
+//}}}
 
 // 풀이 방법 #1
 //   1. std::list에 정수들을 저장한다.
@@ -103,6 +105,7 @@ void Josephus3(queue<int>& people, int stride) {
   return;
 }
 
+//{{{
 int main() {
   int C;
   cin >> C;
@@ -131,3 +134,4 @@ int main() {
   }
   return 0;
 }
+//}}}
