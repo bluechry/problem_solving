@@ -5,10 +5,12 @@
 //  확인하라. 잘 맞는다고 함은, opening bracket과 closing bracket이 같은
 //  종류이고, bracket pair 간에는 교차가 없음을 의미한다.
 
+//{{{
 #include <iostream>
 #include <stack>
 
 using namespace std;
+//}}}
 
 // 풀이 방법 #1
 //
@@ -39,6 +41,7 @@ bool IsWellMatched(const string& brackets) {
   return openStack.empty();
 }
 
+//{{{
 int main() {
   int C;
   cin >> C;
@@ -53,3 +56,4 @@ int main() {
   }
   return 0;
 }
+//}}}
