@@ -69,7 +69,8 @@ double FindMinAvg2(int L, const vector<int>& costs) {
   double min_avg = numeric_limits<double>::max();
   for (int i = 0; i <= N - L; ++i) {
     for (int j = i + L - 1; j <= N - 1; ++j) {
-      // 풀이 방법 1의 accumulate(&costs[i], &costs[j + 1], 0)를 수정
+      // 풀이 방법 1의 accumulate(&costs[i], &costs[j + 1], 0)를
+      // 아래 문장으로 대체
       int sum = (i == 0) ? temp[j] : (temp[j] - temp[i - 1]);
       min_avg = min(min_avg, (double)sum / (j - i + 1));
     }
