@@ -78,6 +78,25 @@ double FindMinAvg2(int L, const vector<int>& costs) {
   return min_avg;
 }
 
+// 풀이 방법 #3
+//
+// 시간 복잡도
+//
+// 공간 복잡도
+//
+double FindMinAvg3(int L, const vector<int>& costs) {
+  int N = costs.size();
+  double min_avg = numeric_limits<double>::max();
+  for (int i = 0; i <= N - L; ++i) {
+    int sum = accumulate(&costs[i], &costs[i + L - 1], 0);
+    for (int j = i + L - 1; j <= N - 1; ++j) {
+      sum += costs[j];
+      min_avg = min(min_avg, (double)sum / (j - i + 1));
+    }
+  }
+  return min_avg;
+}
+
 //{{{
 int main() {
   int C;
@@ -91,7 +110,7 @@ int main() {
       cin >> costs[i];
     }
 
-    double result = FindMinAvg1(L, costs);
+    double result = FindMinAvg3(L, costs);
     printf("%.11lf\n", result);
   }
   return 0;
