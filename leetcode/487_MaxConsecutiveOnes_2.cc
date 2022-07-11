@@ -66,7 +66,7 @@ public:
                     head = zero_pos + 1;
                     zero_pos = tail;
                 }
-            }            
+            }
             max_ones = max(max_ones, tail - head + 1);
         }
         return max_ones;
