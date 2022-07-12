@@ -1,7 +1,12 @@
-// Problem ID: Max Consecutive Ones II
+// Problem ID: 487. Max Consecutive Ones II
 //
-// 문제 설명
+// Problem Definition
+//   Given a binary array nums, return the maximum number of consecutive 1's
+//   in the array if you can flip at most one 0.
 //
+// Constraints
+//   * 1 <= nums.length <= 10^5
+//   * nums[i] is either 0 or 1.
 
 // 풀이 방법 1
 //
@@ -68,30 +73,6 @@ public:
                 }
             }
             max_ones = max(max_ones, tail - head + 1);
-        }
-        return max_ones;
-    }
-};
-
-// 풀이 방법 4
-//
-// 시간 복잡도
-//
-// 공간 복잡도
-//
-class Solution {
-public:
-    int findMaxConsecutiveOnes(vector<int>& nums) {
-        int cur_ones = 0, prev_ones = 0, max_ones = 0, isFlipped = 0;
-        for (int pos = 0; pos < nums.size(); ++pos) {
-            if (nums[pos] == 1) {
-                ++cur_ones;
-            } else if (nums[pos] == 0) {
-                prev_ones = cur_ones;
-                cur_ones = 0;
-                isFlipped = 1;
-            }
-            max_ones = max(max_ones, cur_ones + prev_ones + isFlipped);
         }
         return max_ones;
     }

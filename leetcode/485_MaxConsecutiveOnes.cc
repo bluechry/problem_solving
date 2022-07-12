@@ -1,6 +1,6 @@
 // Problem ID: 485. Max Consecutive Ones
 //
-// Description
+// Problem Definition
 //   Given a binary array nums, return the maximum number of consecutive 1's
 //   in the array.
 //
