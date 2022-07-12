@@ -23,7 +23,7 @@ using namespace std;
 //   가장 작은 값을 반환한다.
 //
 // 시간 복잡도
-//   Loop 반복 횟수 < (N - L + 1) * (N - L) * N < N^3
+//   Loop 반복 횟수 < (N - L + 1) * (N - L + 1) * N < N^3
 //   따라서, O(N^3).
 //
 // 공간 복잡도
@@ -52,7 +52,7 @@ double FindMinAvg1(int L, const vector<int>& costs) {
 //
 // 시간 복잡도
 //   임시 배열 구축 시간: O(N)
-//   Loop 반복 횟수 < (N - L + 1) * (N - L)
+//   Loop 반복 횟수 < (N - L + 1) * (N - L + 1) < N^2
 //   따라서, O(N^2).
 //
 // 공간 복잡도
@@ -79,10 +79,16 @@ double FindMinAvg2(int L, const vector<int>& costs) {
 }
 
 // 풀이 방법 #3
+//   [i, j] 구간의 합을 나타내는 변수 sum을 두고, 구간이 확장됨에 따라 구간의
+//   합을 갱신하고, 이 값을 구간의 길이로 나누어서 평균을 구한다.
 //
 // 시간 복잡도
+//   # of Loops < (N - L + 1) * (N - L + 1) < N^2
+//   따라서, O(N^2).
 //
 // 공간 복잡도
+//   입력 데이터를 저장하기 위한 공간 외에 몇 개의 변수들만 필요하다.
+//   따라서, O(1).
 //
 double FindMinAvg3(int L, const vector<int>& costs) {
   int N = costs.size();
