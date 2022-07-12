@@ -1,6 +1,6 @@
 // Problem ID: FESTIVAL
 //
-// 문제 설명
+// Problem Definition
 //   주어진 N개의 정수들에 대하여, 길이가 L 이상인 연속한 정수들 중,
 //   그들의 평균값이 가장 작은 값을 구하여라.
 //

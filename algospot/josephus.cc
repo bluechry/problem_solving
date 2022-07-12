@@ -1,6 +1,6 @@
 // Problem ID: JOSEPHUS
 //
-// 문제 설명
+// Problem Definition
 //   N개의 정수들이 주어졌을 때, 마지막으로 두 개의 정수들이 남을 때까지
 //   매 K번 원소들(every Kth element)을 삭제하고, 마지막 남은 두 개의 원소들을
 //   오름차순으로 출력하라.

@@ -1,6 +1,6 @@
 // Problem ID: HELLOWORLD
 //
-// 문제 설명
+// Problem Definition
 //   사람들의 이름들을 받아서 "Hello, 이름!" 이라고 출력한다.
 //   사람들의 수는 1명 이상 50명 이하이다.
 //

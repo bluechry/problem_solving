@@ -1,6 +1,6 @@
 // Problem ID: BRACKETS2
 //
-// 문제 설명
+// Problem Definition
 //  '()','{}','[]'로 구성된 문자열이 주어질 때, bracket들의 짝이 잘 맞는지
 //  확인하라. 잘 맞는다고 함은, opening bracket과 closing bracket이 같은
 //  종류이고, bracket pair 간에는 교차가 없음을 의미한다.

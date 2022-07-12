@@ -1,6 +1,6 @@
 // Problem ID: ITES
 //
-// 문제 설명
+// Problem Definition
 //
 
 //{{{
