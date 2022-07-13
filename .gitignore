@@ -31,5 +31,6 @@
 *.out
 *.app
 
-# Resource directories 
+# Resource and documents
 resource
+documents
