@@ -32,5 +32,5 @@
 *.app
 
 # Resource and documents
-resource
-documents
+resource/
+documents/
