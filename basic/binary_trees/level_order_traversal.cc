@@ -85,7 +85,7 @@ vector<vector<int>> LevelOrderTraversal(shared_ptr<TreeNode<int>> root) {
       if (temp->right_) {
         node_queue.emplace(temp->right_);
       }
-		}
+    }
     result.emplace_back(std::move(buffer));
     buffer.clear();
   }
