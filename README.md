@@ -1,2 +1,2 @@
-# Problem Spot (deprecated)
+# Problems (deprecated)
 **Collection of algorithmic &amp; design problems**
