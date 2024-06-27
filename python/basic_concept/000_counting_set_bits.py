@@ -2,13 +2,8 @@
 
 # Problem Definition
 
-
 # Solution I
-
-
-
-# Solution II
-def count_set_bits2(x: int) -> int:
+def count_set_bits1(x: int) -> int:
   num_bits = 0
   while x:
     num_bits += x & 1
@@ -16,8 +11,8 @@ def count_set_bits2(x: int) -> int:
   return num_bits
 
 
-# Solution III
-def count_set_bits3(x: int) -> int:
+# Solution II
+def count_set_bits2(x: int) -> int:
   num_bits = 0
   while x:
     num_bits += 1
@@ -27,8 +22,8 @@ def count_set_bits3(x: int) -> int:
 
 # Test Cases
 for i in range(0, 10):
+  ans1 = count_set_bits1(i)
   ans2 = count_set_bits2(i)
-  ans3 = count_set_bits3(i)
 
-  if ans2 != ans3:
+  if ans1 != ans2:
     print(f'Error occurs at {i}')
