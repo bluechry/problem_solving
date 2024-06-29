@@ -3,7 +3,7 @@
 # Write a program to count the number of set bits in a non-negative integer.
 
 
-# Approach 1
+# Solution 1
 #
 # T(n) = O(log n), n is the given integer
 # S(n) = O(1)
@@ -15,7 +15,7 @@ def count_set_bits1(n: int) -> int:
     return num_bits
 
 
-# Approach 2
+# Solution 2
 #
 # T(n) = O(k), k is the number of set bits in the given integer
 # S(n) = O(1)
@@ -27,7 +27,7 @@ def count_set_bits2(n: int) -> int:
     return num_bits
 
 
-# Approach 3
+# Solution 3
 #
 # T(n) = O(log n), n is the given integer
 # S(n) = O(log n)
