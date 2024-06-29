@@ -3,30 +3,6 @@
 # Write a program to count the number of set bits in a non-negative integer.
 
 
-# Solution 1
-#
-# T(n) = O(log n), n is the given integer
-# S(n) = O(1)
-def count_set_bits1(n: int) -> int:
-    num_bits = 0
-    while n:
-        num_bits += n & 1
-        n >>= 1
-    return num_bits
-
-
-# Solution 2
-#
-# T(n) = O(k), k is the number of set bits in the given integer
-# S(n) = O(1)
-def count_set_bits2(n: int) -> int:
-    num_bits = 0
-    while n:
-        num_bits += 1
-        n &= n - 1
-    return num_bits
-
-
 # Solution 3
 #
 # T(n) = O(log n), n is the given integer
@@ -49,10 +25,10 @@ answer_set = [0, 1, 1, 2, 3, 1]
 output_set = []
 
 for n in input_set:
-    num_bits = count_set_bits2(n)
-    output.append(num_bits)
+    num_bits = count_set_bits3(n)
+    output_set.append(num_bits)
 
-if output != answer_set:
+if output_set != answer_set:
     print("Wrong answer!")
 else:
     print("All test cases passed!")
