@@ -1,0 +1,6 @@
+[submodule "epi_judge"]
+	path = epi_judge
+	url = https://github.com/bluechry/epi_judge
+[submodule "cci_with_python"]
+	path = cci_with_python
+	url = https://github.com/bluechry/cci_with_python
