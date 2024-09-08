@@ -3,15 +3,16 @@ def prev_permutation(s: str):
         raise ValueError("Invalid string.")
 
     lst = list(s)
+    n = len(lst)
 
-    i = len(lst) - 2
+    i = n - 2
     while i >= 0 and lst[i] < lst[i+1]:
         i -= 1
 
     if i == -1:
         return ''.join(lst[::-1])
 
-    j = len(lst) - 1
+    j = n - 1
     while lst[i] < lst[j]:
         j -= 1
 
