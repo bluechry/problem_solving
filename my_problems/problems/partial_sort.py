@@ -33,8 +33,6 @@ def test_partial_sort_list():
     except ValueError as e:
         print(f"Test 4 - Error as expected: {e}")
 
-    print()
-
 
 def test_partial_sort_string():
     print("Testing partial_sort_string...")
@@ -43,7 +41,7 @@ def test_partial_sort_string():
     s1 = "pythonisfun"
     result1 = partial_sort_string(s1, 2, 7)
     print(f"Test 1 - Input: {s1}, Output: {result1}, "
-          f"Expected: 'pyfhinosun'")
+          f"Expected: 'pyhinosfun'")
 
     # Test case 2: Entire string
     s2 = "openai"
@@ -63,9 +61,10 @@ def test_partial_sort_string():
     except ValueError as e:
         print(f"Test 4 - Error as expected: {e}")
 
-    print()
-
 
 if __name__ == "__main__":
     test_partial_sort_list()
+
+    print()
+
     test_partial_sort_string()

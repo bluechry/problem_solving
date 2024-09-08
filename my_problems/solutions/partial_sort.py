@@ -51,7 +51,7 @@ def test_partial_sort_string():
     s1 = "pythonisfun"
     result1 = partial_sort_string(s1, 2, 7)
     print(f"Test 1 - Input: {s1}, Output: {result1}, "
-          f"Expected: 'pyfhinosun'")
+          f"Expected: 'pyhinosfun'")
 
     # Test case 2: Entire string
     s2 = "openai"
