@@ -23,17 +23,25 @@ def prev_permutation(s: str):
     return ''.join(lst)
 
 
+# Test Code
 def list_all_permutation(s: str):
-    prev_s = s
-    print(prev_s)
+    s_orig = s
+    print(s)
 
     while True:
-        prev_s = prev_permutation(prev_s)
-        if prev_s == s:
+        prev_s = prev_permutation(s)
+        if prev_s == s_orig:
             break
+
         print(prev_s)
+        s = prev_s
 
 
 if __name__ == '__main__':
-    list_all_permutation("4321")
-    list_all_permutation("")
+    test_cases = ["0", "1", "12", "21", "123", "321"]
+    for s in test_cases:
+        print(f"Test Case: {s}")
+
+        list_all_permutation(s)
+
+        print()
