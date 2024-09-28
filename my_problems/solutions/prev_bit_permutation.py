@@ -12,7 +12,14 @@ def get_bit_pattern(x: int) -> str:
 
 # Solution 1: Flip the right-most '01' bit pattern
 def prev_bit_permutation(x: int) -> int:
-    pass
+    for i in range(NUM_BITS - 1):
+        if (x >> (i + 1)) & 1 == 1 and (x >> i) & 1 == 0:
+            bit_mask = (1 << (i + 1)) | (1 << i)
+            return x ^ bit_mask
+    else:
+        bit_str = get_bit_pattern(x)
+        prev_str = ''.join(sorted(bit_str, reverse=True))
+        return int(prev_str, 2)
 
 
 # Test Code
