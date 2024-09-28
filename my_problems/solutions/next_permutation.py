@@ -1,5 +1,26 @@
 def next_permutation(s: str) -> str:
-    pass
+    if not s:
+        raise ValueError("Invalid string.")
+
+    lst = list(s)
+    n = len(lst)
+
+    i = n - 2
+    while i >= 0 and lst[i] > lst[i+1]:
+        i -= 1
+
+    if i == -1:
+        return ''.join(lst[::-1])
+
+    j = n - 1
+    while lst[i] > lst[j]:
+        j -= 1
+
+    lst[i], lst[j] = lst[j], lst[i]
+
+    lst[i+1:] = lst[i+1:][::-1]
+
+    return ''.join(lst)
 
 
 # Test Code
