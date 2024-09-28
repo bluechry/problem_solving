@@ -25,20 +25,23 @@ def next_bit_permutation(x: int) -> int:
 # Test Code
 # A given integer x should be a 4-bit value.
 def list_all_permutation(x: int, func: Callable) -> None:
-    num = x
-    print(get_bit_pattern(num))
+    n = x
+    print(get_bit_pattern(n))
 
     while True:
-        next_num = func(num)
-        if next_num == x:
+        next_n = func(n)
+        if next_n == x:
             break
 
-        print(get_bit_pattern(next_num))
-        num = next_num
+        print(get_bit_pattern(next_n))
+        n = next_n
 
 
-test_cases = [0b0000, 0b1000, 0b1100, 0b1110, 0b1111]
-for x in test_cases:
-    print(f"Test Case: {get_bit_pattern(x)}")
-    list_all_permutation(x, next_bit_permutation)
-    print()
+if __name__ == '__main__':
+    test_cases = [0b0000, 0b1000, 0b1100, 0b1110, 0b1111]
+    for x in test_cases:
+        print(f"Test Case: {get_bit_pattern(x)}")
+
+        list_all_permutation(x, next_bit_permutation)
+
+        print()
