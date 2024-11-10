@@ -7,16 +7,15 @@ def next_bit_permutation1(n: int, bit_size: int) -> int:
     bin_str = bin(n)[2:].zfill(bit_size)
     lst = list(bin_str)
 
-    i = bit_size - 2
-    while i >= 0 and lst[i] >= lst[i + 1]:
-        i -= 1
-
-    if i == -1:
+    for i in range(bit_size - 2, -1, -1):
+        if lst[i] < lst[i + 1]:
+            break
+    else:
         return int(''.join(lst[::-1]), 2)
 
-    j = bit_size - 1
-    while lst[j] <= lst[i]:
-        j -= 1
+    for j in range(bit_size - 1, -1, -1):
+        if lst[j] > lst[i]:
+            break
 
     lst[i], lst[j] = lst[j], lst[i]
 
@@ -29,17 +28,18 @@ def next_bit_permutation1(n: int, bit_size: int) -> int:
 def next_bit_permutation2(n: int, bit_size: int) -> int:
     num_set_bits = 0
     for i in range(bit_size - 1):
-        if n & (1 << i):
+        if (n >> i) & 1:
             num_set_bits += 1
 
-        if n & (1 << (i + 1)) < n & (1 << i):
+        if (n >> (i + 1)) & 1 < (n >> i) & 1:
             n |= 1 << (i + 1)
             n &= -1 << (i + 1)
             n |= (1 << (num_set_bits - 1)) - 1
 
             return n
+
     else:
-        if n & (1 << (i + 1)):
+        if (n >> (i + 1)) & 1:
             num_set_bits += 1
 
         return (1 << num_set_bits) - 1
@@ -69,13 +69,13 @@ def print_bin_string(n: int, bit_size: int) -> None:
     print(s)
 
 
-def list_all_permutation(n: int, bit_size: int) -> int:
+def list_all_permutation(n: int, bit_size: int, func: callable) -> int:
 
     orig = n
     print_bin_string(orig, bit_size)
 
     while True:
-        p = next_bit_permutation1(n, bit_size)
+        p = func(n, bit_size)
         if p == orig:
             break
         else:
@@ -85,10 +85,18 @@ def list_all_permutation(n: int, bit_size: int) -> int:
 
 if __name__ == '__main__':
     test_cases = ["0000", "0001", "0011", "0111", "1111"]
+    test_funcs = [
+        next_bit_permutation1,
+        next_bit_permutation2,
+        next_bit_permutation3
+    ]
 
-    for s in test_cases:
-        print(f"Test Case: {s}")
+    for func in test_funcs:
+        print(f"Test Func: {func.__name__}")
 
-        list_all_permutation(int(s, 2), 4)
+        for data in test_cases:
+            print(f"Test Case: {data}")
 
-        print()
+            list_all_permutation(int(data, 2), 4, func)
+
+            print()
