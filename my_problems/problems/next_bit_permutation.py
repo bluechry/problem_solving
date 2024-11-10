@@ -1,5 +1,13 @@
+# Problem
+
+
 # Solution #1
-def next_bit_permutation(n: int, bit_size: int) -> int:
+def next_bit_permutation1(n: int, bit_size: int) -> int:
+    pass
+
+
+# Solution #2
+def next_bit_permutation2(n: int, bit_size: int) -> int:
     num_set_bits = 0
     for i in range(bit_size - 1):
         if n & (1 << i):
@@ -18,11 +26,6 @@ def next_bit_permutation(n: int, bit_size: int) -> int:
         return (1 << num_set_bits) - 1
 
 
-# Solution #2
-def next_bit_permutation2(n: int, bit_size: int) -> int:
-    pass
-
-
 # Test Code
 def list_all_permutation(n: int, bit_size: int) -> int:
 
@@ -34,7 +37,7 @@ def list_all_permutation(n: int, bit_size: int) -> int:
     print_bin_string(orig, bit_size)
 
     while True:
-        p = next_bit_permutation(n, bit_size)
+        p = next_bit_permutation2(n, bit_size)
         if p == orig:
             break
         else:
