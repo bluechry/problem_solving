@@ -23,13 +23,13 @@ def print_bin_string(n: int, bit_size: int) -> None:
     print(s)
 
 
-def list_all_permutation(n: int, bit_size: int) -> int:
+def list_all_permutation(n: int, bit_size: int, func: callable) -> int:
 
     orig = n
     print_bin_string(orig, bit_size)
 
     while True:
-        p = next_bit_permutation1(n, bit_size)
+        p = func(n, bit_size)
         if p == orig:
             break
         else:
@@ -39,10 +39,18 @@ def list_all_permutation(n: int, bit_size: int) -> int:
 
 if __name__ == '__main__':
     test_cases = ["0000", "0001", "0011", "0111", "1111"]
+    test_funcs = [
+        next_bit_permutation1,
+        next_bit_permutation2,
+        next_bit_permutation3
+    ]
 
-    for s in test_cases:
-        print(f"Test Case: {s}")
+    for func in test_funcs:
+        print(f"Test Func: {func.__name__}")
 
-        list_all_permutation(int(s, 2), 4)
+        for data in test_cases:
+            print(f"Test Case: {data}")
 
-        print()
+            list_all_permutation(int(data, 2), 4, func)
+
+            print()
