@@ -13,7 +13,7 @@ def next_permutation(s: str) -> str:
         return ''.join(lst[::-1])
 
     j = n - 1
-    while lst[i] > lst[j]:
+    while lst[j] < lst[i]:
         j -= 1
 
     lst[i], lst[j] = lst[j], lst[i]
