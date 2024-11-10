@@ -28,20 +28,16 @@ def next_bit_permutation1(n: int, bit_size: int) -> int:
 def next_bit_permutation2(n: int, bit_size: int) -> int:
     num_set_bits = 0
     for i in range(bit_size - 1):
-        if (n >> i) & 1:
-            num_set_bits += 1
+        num_set_bits += (n >> i) & 1
 
         if (n >> (i + 1)) & 1 < (n >> i) & 1:
             n |= 1 << (i + 1)
             n &= -1 << (i + 1)
             n |= (1 << (num_set_bits - 1)) - 1
-
             return n
 
     else:
-        if (n >> (i + 1)) & 1:
-            num_set_bits += 1
-
+        num_set_bits += (n >> (i + 1)) & 1
         return (1 << num_set_bits) - 1
 
 
